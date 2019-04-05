@@ -27,17 +27,16 @@ public class ShipMove : MonoBehaviour
     //[Header("Water Positioning variables")]
 
     //ADJUST VARIABLES
-    [SerializeField]Transform[] rayCastOrigins;
+    //Transform[] rayCastOrigins;
     Rigidbody rb;
     int layerMask;
 
     // Start is called before the first frame update
     void Start()
     {
-        rayCastOrigins = GetComponentsInChildren<Transform>();
-        
+        //rayCastOrigins = GetComponentsInChildren<Transform>();
         rb = GetComponent<Rigidbody>();
-        layerMask = LayerMask.GetMask("WaterSurface");
+        layerMask = LayerMask.GetMask("Water");
     }
 
     // Update is called once per frame
@@ -45,10 +44,10 @@ public class ShipMove : MonoBehaviour
     {
         manageInputs();
 
-        Vector3 correctUp = new Vector3();
-        Vector3 correctPos = new Vector3();
+        Vector3 correctUp = new Vector3(0f,0f,0f);
+        Vector3 correctPos = new Vector3(0f,0f,0f);
         int count = 0;
-        for(int i = 1; i < rayCastOrigins.Length; i++)
+        /*for(int i = 1; i < rayCastOrigins.Length; i++)
         {
             Transform t = rayCastOrigins[i];
             RaycastHit hit;
@@ -57,13 +56,11 @@ public class ShipMove : MonoBehaviour
                 correctPos += hit.point;
                 count++;
             }
-        }
-        //print(count);
+        }*/
+        Debug.DrawRay(transform.position, -transform.up, Color.red);
         correctUp = correctUp.normalized;
-        //print(correctUp);
         correctPos = correctPos / (float)count;
         transform.position = correctPos;
-        print(correctPos);
         transform.up = correctUp;
 
     }
