@@ -30,6 +30,8 @@ Material:
     m_Floats:
     - _Bands: 5
     - _Gloss: 0.95
+    - _node_5750: 0.05
+    - _outline_width: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Coloroscuro: {r: 0.735849, g: 0.5215004, b: 0.3991634, a: 1}
