@@ -15,7 +15,7 @@ public class ShipPunch : MonoBehaviour
     float counter = 0;
     Vector3 resetPos;
     Quaternion resetRot;
-
+    [SerializeField] AudioSource punchSound;
 
 
     // Update is called once per frame
@@ -48,29 +48,18 @@ public class ShipPunch : MonoBehaviour
     {
         if (!pushing)
         {
+            punchSound.Play();
             pushing = true;
             counter = 0;
             resetPos = transform.localPosition;
             resetRot = transform.localRotation;
         }
     }
-
-    //private void OnTriggerEnter(Collision collision)
-    //{
-        /*if((LayerMask.LayerToName(collision.gameObject.layer) == "ShipPlayer1" && LayerMask.LayerToName(gameObject.layer) == "puncherPlayer2")
-            || (LayerMask.LayerToName(collision.gameObject.layer) == "ShipPlayer2" && LayerMask.LayerToName(gameObject.layer) == "puncherPlayer1"))
-        {*/
-        
-        //}
-    //}
     private void OnTriggerEnter(Collider other)
     {
         if (pushing)
         {
             other.gameObject.GetComponent<ShipMove>().getHit(transform.right * side);
         }
-        //print("collision detected");
-        
-      //other.gameObject.GetComponent<ShipMove>().direction = transform.right * side;
     }
 }

@@ -33,6 +33,9 @@ public class ShipMove : MonoBehaviour
     float hitCounter = 0f;
     //[SerializeField] Transform agua;
 
+    
+    
+
     //ADJUST VARIABLES
     [Header("Adjust variables")]
     [SerializeField][Range(0.1f,7f)] float raycastDisplacement = 0.3f;
@@ -40,21 +43,25 @@ public class ShipMove : MonoBehaviour
     //Transform[] rayCastOrigins;
     Rigidbody rb;
     int layerMask;
+    [SerializeField] WindController wc;
 
     [Header("Punch references")]
     [SerializeField] ShipPunch rightPuncher;
     [SerializeField] ShipPunch leftPuncher;
+    [SerializeField] AudioSource hitSound;
+
 
     // Start is called before the first frame update
     void Start()
     {
+
+        //StartCoroutine("startWind");
         //Time.timeScale = 0.05f;
         //rayCastOrigins = GetComponentsInChildren<Transform>();
         rb = GetComponent<Rigidbody>();
         layerMask = LayerMask.GetMask("WaterSurface");
     }
 
-    // Update is called once per frame
     void Update()
     {
         manageInputs();
@@ -79,6 +86,7 @@ public class ShipMove : MonoBehaviour
             rb.AddTorque(transform.up * veerSpeed, ForceMode.Force);
         }
         hitControl();
+        windControl();
     }
     private void hitControl()
     {
@@ -100,6 +108,11 @@ public class ShipMove : MonoBehaviour
         }
         
         rb.velocity += proportionalDirection;
+    }
+    private void windControl()
+    {
+
+        rb.AddForce(new Vector3(wc.windDirection.x, 0f, wc.windDirection.y));
     }
 
     private void manageInputs()
@@ -168,6 +181,7 @@ public class ShipMove : MonoBehaviour
     {
         hitCounter = 0f;
         hitDirection = dir * hitPower;
+        hitSound.Play();
         print("someone was hit");
     }
     public void stopHit()

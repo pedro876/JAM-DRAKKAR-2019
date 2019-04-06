@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fire
-  - player1
   - ring
+  - player
   layers:
   - Default
   - TransparentFX
