@@ -59,7 +59,7 @@ public class ShipMove : MonoBehaviour
         wavePositioning();
         //FORWARD
         xSpeed += ((float)xInput - (xSpeed / X_AxisMaxSpeed)) * xAcceleration ;
-        xSpeed = Mathf.Clamp(xSpeed, -X_AxisMaxSpeed, X_AxisMaxSpeed);
+        xSpeed = Mathf.Clamp(xSpeed, /*-X_AxisMaxSpeed*/0f, X_AxisMaxSpeed);
         Vector3 dir = xSpeed * transform.forward.normalized;
         rb.velocity = dir;
 
@@ -109,6 +109,14 @@ public class ShipMove : MonoBehaviour
             correctNormal += hit.normal;
         }
         if (Physics.Raycast(transform.position + Vector3.up * 3 - transform.forward * raycastDisplacement/2, /*-transform.up*/-Vector3.up, out hit, 100f, layerMask))
+        {
+            correctNormal += hit.normal;
+        }
+        if (Physics.Raycast(transform.position + Vector3.up * 3 + transform.right * raycastDisplacement, /*-transform.up*/-Vector3.up, out hit, 100f, layerMask))
+        {
+            correctNormal += hit.normal;
+        }
+        if (Physics.Raycast(transform.position + Vector3.up * 3 - transform.right * raycastDisplacement, /*-transform.up*/-Vector3.up, out hit, 100f, layerMask))
         {
             correctNormal += hit.normal;
         }
