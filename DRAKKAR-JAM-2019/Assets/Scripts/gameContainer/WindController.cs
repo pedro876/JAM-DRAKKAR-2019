@@ -18,6 +18,8 @@ public class WindController : MonoBehaviour
     [SerializeField] Rigidbody[] players;
     [SerializeField] GameObject water;
 
+    Vector3 waterSpeed = new Vector3();
+
     private void Start()
     {
         StartCoroutine("startWind");
