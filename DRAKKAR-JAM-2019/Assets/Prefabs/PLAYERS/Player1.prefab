@@ -123,12 +123,13 @@ MonoBehaviour:
   veerAcceleration: 2
   X_AxisMaxSpeed: 4
   veerMaxSpeed: 15
-  hitPower: 5
-  powerLossTime: 3
+  hitPower: 7
+  powerLossTime: 2
   raycastDisplacement: 4.5
   canMove: 1
   rightPuncher: {fileID: 3443625422401068237}
   leftPuncher: {fileID: 3443625423207289927}
+  hitSound: {fileID: 0}
 --- !u!65 &1515481514439093515
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -220,6 +221,7 @@ MonoBehaviour:
   pushedWaitTime: 0.25
   coolDown: 1
   maxDisplacement: 0.5
+  punchSound: {fileID: 0}
 --- !u!65 &1515481512902280099
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -299,6 +301,7 @@ MonoBehaviour:
   pushedWaitTime: 0.25
   coolDown: 1
   maxDisplacement: 0.5
+  punchSound: {fileID: 0}
 --- !u!65 &1515481512718308350
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -394,8 +397,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.32232806
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8530569666733483705, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
 --- !u!4 &7163742126040328837 stripped
 Transform:
@@ -485,8 +487,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.32232806
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8530569666733483705, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
 --- !u!4 &7163742125975831731 stripped
 Transform:
@@ -576,8 +577,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.32232806
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8530569666733483705, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
 --- !u!4 &7163742125969603017 stripped
 Transform:
@@ -667,8 +667,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.32232806
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8530569666733483705, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
 --- !u!4 &7163742125580184171 stripped
 Transform:
@@ -760,6 +759,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8530569666733483705, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
+    - {fileID: 8530569666733483705, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
+    - {fileID: 8530569666733483705, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
+    - {fileID: 8530569666733483705, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
+    - {fileID: 8530569666733483705, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
 --- !u!4 &7163742125410241602 stripped
 Transform:
@@ -849,8 +852,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.32232806
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8530569666733483705, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2286060e3000c4e4f947d5d9ce116f42, type: 3}
 --- !u!4 &7163742125393748153 stripped
 Transform:
@@ -865,14 +867,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1515481514439093512}
     m_Modifications:
-    - target: {fileID: 100022, guid: 64f914ab73e1c0444bb60272de398fe5, type: 3}
-      propertyPath: m_Name
-      value: ship_uvs_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100022, guid: 64f914ab73e1c0444bb60272de398fe5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: 64f914ab73e1c0444bb60272de398fe5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.00058186
@@ -928,6 +922,14 @@ PrefabInstance:
     - target: {fileID: 400022, guid: 64f914ab73e1c0444bb60272de398fe5, type: 3}
       propertyPath: m_LocalScale.z
       value: 4.414685
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: 64f914ab73e1c0444bb60272de398fe5, type: 3}
+      propertyPath: m_Name
+      value: ship_uvs_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: 64f914ab73e1c0444bb60272de398fe5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 64f914ab73e1c0444bb60272de398fe5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -992,10 +994,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1515481514439093512}
     m_Modifications:
-    - target: {fileID: 100022, guid: f8ad2b49c69447f4e86fcefd602a59c3, type: 3}
-      propertyPath: m_Name
-      value: ship_giraffe
-      objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: f8ad2b49c69447f4e86fcefd602a59c3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.002
@@ -1051,6 +1049,10 @@ PrefabInstance:
     - target: {fileID: 400022, guid: f8ad2b49c69447f4e86fcefd602a59c3, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.2208036
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: f8ad2b49c69447f4e86fcefd602a59c3, type: 3}
+      propertyPath: m_Name
+      value: ship_giraffe
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: f8ad2b49c69447f4e86fcefd602a59c3, type: 3}
       propertyPath: m_Materials.Array.data[0]
