@@ -25,8 +25,12 @@ public class ShipMove : MonoBehaviour
     float veerSpeed = 0f;
     bool hitRight = false;
     bool hitLeft = false;
-    //[Header("Water Positioning variables")]
 
+    [Header("Hit variables")]
+    [SerializeField] float hitPower = 5f;
+    Vector3 hitDirection = new Vector3();
+    [SerializeField] float powerLossTime = 3f;
+    float hitCounter = 0f;
     //[SerializeField] Transform agua;
 
     //ADJUST VARIABLES
@@ -55,12 +59,13 @@ public class ShipMove : MonoBehaviour
     {
         manageInputs();
         //wavePositioning();
+        
     }
 
     private void FixedUpdate()
     {
         if (canMove)
-        {;
+        {
             wavePositioning();
             //FORWARD
             xSpeed += ((float)xInput - (xSpeed / X_AxisMaxSpeed)) * xAcceleration;
@@ -73,9 +78,29 @@ public class ShipMove : MonoBehaviour
             veerSpeed = Mathf.Clamp(veerSpeed, -veerMaxSpeed, veerMaxSpeed);
             rb.AddTorque(transform.up * veerSpeed, ForceMode.Force);
         }
-        
+        hitControl();
     }
-
+    private void hitControl()
+    {
+        Vector3 proportionalDirection = new Vector3();
+        if(hitDirection.magnitude > 0.02f)
+        {
+            if (hitCounter < powerLossTime - 0.05f)
+            {
+                proportionalDirection = hitDirection * (1 - (hitCounter/powerLossTime));
+                hitCounter += Time.fixedDeltaTime;
+                //print("adding vel");
+                print(hitCounter);
+            }
+            else
+            {
+                hitDirection = new Vector3();
+                hitCounter = 0f;
+            }
+        }
+        
+        rb.velocity += proportionalDirection;
+    }
 
     private void manageInputs()
     {
@@ -137,5 +162,12 @@ public class ShipMove : MonoBehaviour
             }
             transform.Rotate(transform.up, angle);
         } 
+    }
+
+    public void getHit(Vector3 dir)
+    {
+        hitCounter = 0f;
+        hitDirection = dir * hitPower;
+        print("someone was hit");
     }
 }
