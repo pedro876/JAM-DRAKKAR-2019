@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CustomLighting
+  m_Name: CustomLighting 1
   m_Shader: {fileID: 4800000, guid: e570c2adf90d6a24b8634788025bb2bb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Diffuse:
-        m_Texture: {fileID: 2800000, guid: 7b0d4884325bf294ca277c597eec0286, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normals:
@@ -28,12 +28,12 @@ Material:
         m_Scale: {x: 32, y: 32}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Bands: 2
+    - _Bands: 3
     - _Gloss: 0.95
     - _node_5750: 0.05
     - _outline_width: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Coloroscuro: {r: 0.5566038, g: 0.44179267, b: 0.4016999, a: 1}
+    - _Coloroscuro: {r: 0.5377358, g: 0.23798613, b: 0.12428801, a: 1}
     - _node_2892: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
     - _node_6424: {r: 0.5, g: 0.5, b: 0.5, a: 1}
