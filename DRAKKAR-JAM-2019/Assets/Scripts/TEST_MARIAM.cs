@@ -9,7 +9,7 @@ public class TEST_MARIAM : MonoBehaviour
     void Start()
     {
         this.GetComponent<MeshRenderer>().material.SetVector("_DirectionXY", new Vector4(1f, 1f, 0, 0));
-        this.transform.
+
 
     }
 
