@@ -27,7 +27,7 @@ public class ShipMove : MonoBehaviour
     bool hitLeft = false;
     //[Header("Water Positioning variables")]
 
-    [SerializeField] Transform agua;
+    //[SerializeField] Transform agua;
 
     //ADJUST VARIABLES
     //Transform[] rayCastOrigins;
@@ -37,6 +37,7 @@ public class ShipMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Time.timeScale = 0.05f;
         //rayCastOrigins = GetComponentsInChildren<Transform>();
         rb = GetComponent<Rigidbody>();
         layerMask = LayerMask.GetMask("WaterSurface");
@@ -52,7 +53,7 @@ public class ShipMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        agua.Rotate(new Vector3(0f, 0f, 0.1f));
+        //agua.Rotate(new Vector3(0f, 0f, 0.1f));
         wavePositioning();
         //FORWARD
         xSpeed += ((float)xInput - (xSpeed / X_AxisMaxSpeed)) * xAcceleration ;
@@ -65,9 +66,10 @@ public class ShipMove : MonoBehaviour
         veerSpeed = Mathf.Clamp(veerSpeed, -veerMaxSpeed, veerMaxSpeed);
         //transform.localRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + veerSpeed, transform.rotation.eulerAngles.z);
         //float veerSpeedAux = Mathf.Clamp(veerSpeed, 0.7f, veerMaxSpeed) * Mathf.Abs(veerInput);
-        rb.angularVelocity = transform.up * veerSpeed;
+        //rb.angularVelocity = transform.up * veerSpeed;
+        //transform.Rotate(Vector3.up, veerSpeed);
         //if (veerInput != 0)
-            //rb.AddTorque(transform.up * veerSpeedAux, ForceMode.Force);
+            rb.AddTorque(transform.up * veerSpeed, ForceMode.Force);
         //else
             //rb.AddTorque(transform.up * (-veerSpeedAux * 0.2f), ForceMode.Force);
         //print(veerSpeed);
@@ -87,26 +89,33 @@ public class ShipMove : MonoBehaviour
         hitRight = Input.GetKeyDown(hitRightKey);
         hitLeft  = Input.GetKeyDown(hitLeftKey);
     }
-    private void wavePositioning()
+    public void wavePositioning()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position + transform.up, -transform.up, out hit, 10f, layerMask))
+        if (Physics.Raycast(transform.position + Vector3.up*3, /*-transform.up*/-Vector3.up, out hit, 100f, layerMask))
         {
-            //print("hit");
+            print("hit");
             transform.position = hit.point;
-            
-            float angle = Vector3.Angle(hit.normal, transform.up);
-            //print(angle);
+
+            /*
             Vector3 aux = Vector3.Cross(transform.up, hit.normal);
-            transform.Rotate(aux, angle);
-            
-        } /*else if (Physics.Raycast(transform.position + transform.up, -transform.up, out hit, -10f, layerMask)){
-            transform.position = hit.point;
-            float angle = Vector3.Angle(hit.normal, transform.up);
+            float angle = Vector3.SignedAngle(hit.normal, transform.up,aux);
             print(angle);
-            Vector3 aux = Vector3.Cross(transform.up, hit.normal);
-            transform.Rotate(aux, angle);
-        }*/
-        Debug.DrawRay(transform.position + transform.up, -transform.up, Color.red);
+
+            transform.Rotate(aux, angle);*/
+            Vector3 auxForward = transform.forward;
+            transform.up = hit.normal;
+            float angle = Vector3.Angle(auxForward, transform.forward);
+            Vector3 crossProduct = Vector3.Cross(Vector3.ProjectOnPlane(auxForward, Vector3.up),
+                Vector3.ProjectOnPlane(transform.forward, Vector3.up));
+            if (crossProduct.y > 0)
+            {
+                angle = -angle;
+                print("negando angle");
+            }
+            transform.Rotate(transform.up, angle);
+
+
+        } 
     }
 }
