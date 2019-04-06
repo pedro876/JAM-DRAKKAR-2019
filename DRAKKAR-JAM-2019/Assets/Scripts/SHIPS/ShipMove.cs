@@ -31,7 +31,8 @@ public class ShipMove : MonoBehaviour
 
     //ADJUST VARIABLES
     [Header("Adjust variables")]
-    [SerializeField][Range(0.1f,2f)] float raycastDisplacement = 0.3f;
+    [SerializeField][Range(0.1f,7f)] float raycastDisplacement = 0.3f;
+    public bool canMove = true;
     //Transform[] rayCastOrigins;
     Rigidbody rb;
     int layerMask;
@@ -50,31 +51,30 @@ public class ShipMove : MonoBehaviour
     {
         manageInputs();
         //wavePositioning();
-        //print(X_AxisMaxSpeed);
     }
 
     private void FixedUpdate()
     {
-        //agua.Rotate(new Vector3(0f, 0f, 0.1f));
-        wavePositioning();
-        //FORWARD
-        xSpeed += ((float)xInput - (xSpeed / X_AxisMaxSpeed)) * xAcceleration ;
-        xSpeed = Mathf.Clamp(xSpeed, /*-X_AxisMaxSpeed*/0f, X_AxisMaxSpeed);
-        Vector3 dir = xSpeed * transform.forward.normalized;
-        rb.velocity = dir;
+        if (canMove)
+        {
+            //agua.Rotate(new Vector3(0f, 0f, 0.1f));
+            wavePositioning();
+            //FORWARD
+            xSpeed += ((float)xInput - (xSpeed / X_AxisMaxSpeed)) * xAcceleration;
+            xSpeed = Mathf.Clamp(xSpeed, /*-X_AxisMaxSpeed*/0f, X_AxisMaxSpeed);
+            Vector3 dir = xSpeed * transform.forward.normalized;
+            rb.velocity = dir;
 
-        //SIDES
-        veerSpeed += ((float)veerInput - (veerSpeed / veerMaxSpeed)) * veerAcceleration;
-        veerSpeed = Mathf.Clamp(veerSpeed, -veerMaxSpeed, veerMaxSpeed);
-        //transform.localRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + veerSpeed, transform.rotation.eulerAngles.z);
-        //float veerSpeedAux = Mathf.Clamp(veerSpeed, 0.7f, veerMaxSpeed) * Mathf.Abs(veerInput);
-        //rb.angularVelocity = transform.up * veerSpeed;
-        //transform.Rotate(Vector3.up, veerSpeed);
-        //if (veerInput != 0)
+            //SIDES
+            veerSpeed += ((float)veerInput - (veerSpeed / veerMaxSpeed)) * veerAcceleration;
+            veerSpeed = Mathf.Clamp(veerSpeed, -veerMaxSpeed, veerMaxSpeed);
+            //transform.localRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + veerSpeed, transform.rotation.eulerAngles.z);
+            //float veerSpeedAux = Mathf.Clamp(veerSpeed, 0.7f, veerMaxSpeed) * Mathf.Abs(veerInput);
+            //rb.angularVelocity = transform.up * veerSpeed;
+            //transform.Rotate(Vector3.up, veerSpeed);
+            //if (veerInput != 0)
             rb.AddTorque(transform.up * veerSpeed, ForceMode.Force);
-        //else
-        //rb.AddTorque(transform.up * (-veerSpeedAux * 0.2f), ForceMode.Force);
-        //print(veerSpeed);
+        }
         
     }
 
@@ -122,10 +122,9 @@ public class ShipMove : MonoBehaviour
         }
         if (Physics.Raycast(transform.position + Vector3.up*3, /*-transform.up*/-Vector3.up, out hit, 100f, layerMask))
         {
-            print("hit");
             transform.position = hit.point;
             Vector3 auxForward = transform.forward;
-            correctNormal += hit.normal;
+            //correctNormal += hit.normal;
             correctNormal = correctNormal.normalized;
             transform.up = correctNormal;
             float angle = Vector3.Angle(auxForward, transform.forward);
@@ -134,7 +133,6 @@ public class ShipMove : MonoBehaviour
             if (crossProduct.y > 0)
             {
                 angle = -angle;
-                print("negando angle");
             }
             transform.Rotate(transform.up, angle);
         } 
