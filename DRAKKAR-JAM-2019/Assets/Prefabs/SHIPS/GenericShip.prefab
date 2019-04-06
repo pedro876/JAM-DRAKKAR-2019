@@ -1,5 +1,129 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &166900261
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 166900264}
+  - component: {fileID: 166900263}
+  - component: {fileID: 166900262}
+  m_Layer: 11
+  m_Name: pushRightCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &166900264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166900261}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.004578637, y: 0.7333952, z: 0.011870615}
+  m_LocalScale: {x: 0.5172219, y: 1.8088633, z: 0.83942574}
+  m_Children: []
+  m_Father: {fileID: 4233987813711463395}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &166900263
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166900261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &166900262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166900261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1ca8f353315f9468a3807030c08252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  side: 1
+  pushTime: 1
+  pushedWaitTime: 1
+  coolDown: 5
+  maxDisplacement: 1
+--- !u!1 &1502395051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1502395054}
+  - component: {fileID: 1502395053}
+  - component: {fileID: 1502395052}
+  m_Layer: 12
+  m_Name: pushLeftCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1502395054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502395051}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.004578637, y: 0.7333952, z: 0.011870615}
+  m_LocalScale: {x: 0.5172219, y: 1.8088633, z: 0.83942574}
+  m_Children: []
+  m_Father: {fileID: 4233987813711463395}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1502395053
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502395051}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1502395052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502395051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1ca8f353315f9468a3807030c08252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  side: -1
+  pushTime: 1
+  pushedWaitTime: 1
+  coolDown: 5
+  maxDisplacement: 1
 --- !u!1 &4233987813711463397
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,7 +139,7 @@ GameObject:
   - component: {fileID: 4233987813711463398}
   - component: {fileID: 4233987813711463392}
   - component: {fileID: 4262658809398243394}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: GenericShip
   m_TagString: player1
   m_Icon: {fileID: 0}
@@ -35,6 +159,8 @@ Transform:
   m_Children:
   - {fileID: 5345454192363410898}
   - {fileID: 4233987813650595867}
+  - {fileID: 166900264}
+  - {fileID: 1502395054}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -123,6 +249,8 @@ MonoBehaviour:
   veerMaxSpeed: 15
   raycastDisplacement: 4.5
   canMove: 1
+  rightPuncher: {fileID: 166900262}
+  leftPuncher: {fileID: 1502395052}
 --- !u!65 &4233987813711463392
 BoxCollider:
   m_ObjectHideFlags: 0

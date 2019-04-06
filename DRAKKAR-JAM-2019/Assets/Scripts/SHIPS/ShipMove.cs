@@ -37,6 +37,10 @@ public class ShipMove : MonoBehaviour
     Rigidbody rb;
     int layerMask;
 
+    [Header("Punch references")]
+    [SerializeField] ShipPunch rightPuncher;
+    [SerializeField] ShipPunch leftPuncher;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,8 +60,7 @@ public class ShipMove : MonoBehaviour
     private void FixedUpdate()
     {
         if (canMove)
-        {
-            //agua.Rotate(new Vector3(0f, 0f, 0.1f));
+        {;
             wavePositioning();
             //FORWARD
             xSpeed += ((float)xInput - (xSpeed / X_AxisMaxSpeed)) * xAcceleration;
@@ -68,11 +71,6 @@ public class ShipMove : MonoBehaviour
             //SIDES
             veerSpeed += ((float)veerInput - (veerSpeed / veerMaxSpeed)) * veerAcceleration;
             veerSpeed = Mathf.Clamp(veerSpeed, -veerMaxSpeed, veerMaxSpeed);
-            //transform.localRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + veerSpeed, transform.rotation.eulerAngles.z);
-            //float veerSpeedAux = Mathf.Clamp(veerSpeed, 0.7f, veerMaxSpeed) * Mathf.Abs(veerInput);
-            //rb.angularVelocity = transform.up * veerSpeed;
-            //transform.Rotate(Vector3.up, veerSpeed);
-            //if (veerInput != 0)
             rb.AddTorque(transform.up * veerSpeed, ForceMode.Force);
         }
         
@@ -91,6 +89,9 @@ public class ShipMove : MonoBehaviour
 
         hitRight = Input.GetKeyDown(hitRightKey);
         hitLeft  = Input.GetKeyDown(hitLeftKey);
+
+        if (hitRight) rightPuncher.punch();
+        if (hitLeft) leftPuncher.punch();
     }
     public void wavePositioning()
     {
