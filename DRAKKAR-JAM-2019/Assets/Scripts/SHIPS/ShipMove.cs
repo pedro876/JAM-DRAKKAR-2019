@@ -30,6 +30,8 @@ public class ShipMove : MonoBehaviour
     //[SerializeField] Transform agua;
 
     //ADJUST VARIABLES
+    [Header("Adjust variables")]
+    [SerializeField][Range(0.1f,2f)] float raycastDisplacement = 0.3f;
     //Transform[] rayCastOrigins;
     Rigidbody rb;
     int layerMask;
@@ -71,8 +73,9 @@ public class ShipMove : MonoBehaviour
         //if (veerInput != 0)
             rb.AddTorque(transform.up * veerSpeed, ForceMode.Force);
         //else
-            //rb.AddTorque(transform.up * (-veerSpeedAux * 0.2f), ForceMode.Force);
+        //rb.AddTorque(transform.up * (-veerSpeedAux * 0.2f), ForceMode.Force);
         //print(veerSpeed);
+        
     }
 
 
@@ -92,19 +95,31 @@ public class ShipMove : MonoBehaviour
     public void wavePositioning()
     {
         RaycastHit hit;
+        Vector3 correctNormal = new Vector3();
+        if (Physics.Raycast(transform.position + Vector3.up * 3 + transform.forward * raycastDisplacement, /*-transform.up*/-Vector3.up, out hit, 100f, layerMask))
+        {
+            correctNormal += hit.normal;
+        }
+        if (Physics.Raycast(transform.position + Vector3.up * 3 - transform.forward * raycastDisplacement, /*-transform.up*/-Vector3.up, out hit, 100f, layerMask))
+        {
+            correctNormal += hit.normal;
+        }
+        if (Physics.Raycast(transform.position + Vector3.up * 3 + transform.forward * raycastDisplacement/2, /*-transform.up*/-Vector3.up, out hit, 100f, layerMask))
+        {
+            correctNormal += hit.normal;
+        }
+        if (Physics.Raycast(transform.position + Vector3.up * 3 - transform.forward * raycastDisplacement/2, /*-transform.up*/-Vector3.up, out hit, 100f, layerMask))
+        {
+            correctNormal += hit.normal;
+        }
         if (Physics.Raycast(transform.position + Vector3.up*3, /*-transform.up*/-Vector3.up, out hit, 100f, layerMask))
         {
             print("hit");
             transform.position = hit.point;
-
-            /*
-            Vector3 aux = Vector3.Cross(transform.up, hit.normal);
-            float angle = Vector3.SignedAngle(hit.normal, transform.up,aux);
-            print(angle);
-
-            transform.Rotate(aux, angle);*/
             Vector3 auxForward = transform.forward;
-            transform.up = hit.normal;
+            correctNormal += hit.normal;
+            correctNormal = correctNormal.normalized;
+            transform.up = correctNormal;
             float angle = Vector3.Angle(auxForward, transform.forward);
             Vector3 crossProduct = Vector3.Cross(Vector3.ProjectOnPlane(auxForward, Vector3.up),
                 Vector3.ProjectOnPlane(transform.forward, Vector3.up));
@@ -114,8 +129,6 @@ public class ShipMove : MonoBehaviour
                 print("negando angle");
             }
             transform.Rotate(transform.up, angle);
-
-
         } 
     }
 }
