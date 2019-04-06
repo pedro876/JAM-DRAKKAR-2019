@@ -1,75 +1,14 @@
 fileFormatVersion: 2
-guid: df9b57867434e704ca8aa94c0632650b
+guid: 4c01f2ca40514804ebd477473e4f7621
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: base
-    100002: escudo_32
-    100004: escudo_33
-    100006: escudo_34
-    100008: escudo_35
-    100010: escudo_36
-    100012: escudo_37
-    100014: escudo_38
-    100016: escudo_39
-    100018: giraffe
-    100020: polySurface6
-    100022: polySurface7
-    100024: racoon
-    100026: //RootNode
-    400000: base
-    400002: escudo_32
-    400004: escudo_33
-    400006: escudo_34
-    400008: escudo_35
-    400010: escudo_36
-    400012: escudo_37
-    400014: escudo_38
-    400016: escudo_39
-    400018: giraffe
-    400020: polySurface6
-    400022: polySurface7
-    400024: racoon
-    400026: //RootNode
-    2100000: lambert4
-    2100002: lambert2
-    2100004: lambert1
-    2300000: base
-    2300002: escudo_32
-    2300004: escudo_33
-    2300006: escudo_34
-    2300008: escudo_35
-    2300010: escudo_36
-    2300012: escudo_37
-    2300014: escudo_38
-    2300016: escudo_39
-    2300018: polySurface6
-    2300020: polySurface7
-    3300000: base
-    3300002: escudo_32
-    3300004: escudo_33
-    3300006: escudo_34
-    3300008: escudo_35
-    3300010: escudo_36
-    3300012: escudo_37
-    3300014: escudo_38
-    3300016: escudo_39
-    3300018: polySurface6
-    3300020: polySurface7
-    4300000: base
-    4300002: polySurface6
-    4300004: polySurface7
-    4300006: escudo_32
-    4300008: escudo_33
-    4300010: escudo_34
-    4300012: escudo_35
-    4300014: escudo_36
-    4300016: escudo_37
-    4300018: escudo_38
-    4300020: escudo_39
-    7400000: Take 001
-    9500000: //RootNode
-    2186277476908879412: ImportLogs
+    100000: //RootNode
+    400000: //RootNode
+    2100000: lambert1
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: foam
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -122,16 +61,16 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
-    normalSmoothAngle: 80
-    normalImportMode: 1
+    normalSmoothAngle: 60
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
-    normalSmoothingSource: 2
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
@@ -150,7 +89,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
