@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 0.5172219, y: 1.8088633, z: 0.83942574}
   m_Children: []
   m_Father: {fileID: 4233987813711463395}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &166900263
 BoxCollider:
@@ -92,7 +92,7 @@ Transform:
   m_LocalScale: {x: 0.5172219, y: 1.8088633, z: 0.83942574}
   m_Children: []
   m_Father: {fileID: 4233987813711463395}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1502395053
 BoxCollider:
@@ -247,6 +247,8 @@ MonoBehaviour:
   veerAcceleration: 2
   X_AxisMaxSpeed: 4
   veerMaxSpeed: 15
+  hitPower: 5
+  powerLossTime: 3
   raycastDisplacement: 4.5
   canMove: 1
   rightPuncher: {fileID: 166900262}
@@ -459,16 +461,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: f8ad2b49c69447f4e86fcefd602a59c3, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.2208036
+      propertyPath: m_LocalScale.x
+      value: 0.42714947
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: f8ad2b49c69447f4e86fcefd602a59c3, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.4825385
       objectReference: {fileID: 0}
     - target: {fileID: 400022, guid: f8ad2b49c69447f4e86fcefd602a59c3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.42714947
+      propertyPath: m_LocalScale.z
+      value: 0.2208036
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: f8ad2b49c69447f4e86fcefd602a59c3, type: 3}
       propertyPath: m_Materials.Array.data[0]

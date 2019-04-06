@@ -16,11 +16,7 @@ public class ShipPunch : MonoBehaviour
     Vector3 resetPos;
     Quaternion resetRot;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -50,7 +46,6 @@ public class ShipPunch : MonoBehaviour
 
     public void punch()
     {
-
         if (!pushing)
         {
             pushing = true;
@@ -58,6 +53,24 @@ public class ShipPunch : MonoBehaviour
             resetPos = transform.localPosition;
             resetRot = transform.localRotation;
         }
+    }
+
+    //private void OnTriggerEnter(Collision collision)
+    //{
+        /*if((LayerMask.LayerToName(collision.gameObject.layer) == "ShipPlayer1" && LayerMask.LayerToName(gameObject.layer) == "puncherPlayer2")
+            || (LayerMask.LayerToName(collision.gameObject.layer) == "ShipPlayer2" && LayerMask.LayerToName(gameObject.layer) == "puncherPlayer1"))
+        {*/
         
+        //}
+    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (pushing)
+        {
+            other.gameObject.GetComponent<ShipMove>().getHit(transform.right * side);
+        }
+        //print("collision detected");
+        
+      //other.gameObject.GetComponent<ShipMove>().direction = transform.right * side;
     }
 }
