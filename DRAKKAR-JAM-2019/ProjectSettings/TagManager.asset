@@ -19,10 +19,10 @@ TagManager:
   - PostProcessing
   - WaterSurface
   - Ships
-  - 
-  - 
-  - 
-  - 
+  - puncherPlayer1
+  - puncherPlayer2
+  - ShipPlayer1
+  - ShipPlayer2
   - 
   - 
   - 
