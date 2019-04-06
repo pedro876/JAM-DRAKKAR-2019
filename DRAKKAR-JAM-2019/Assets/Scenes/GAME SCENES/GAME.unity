@@ -314,6 +314,24 @@ PrefabInstance:
       propertyPath: punchSound
       value: 
       objectReference: {fileID: 1970794284}
+    - target: {fileID: 3399492554105836169, guid: c163dc93e213e1e4c907ce41c5137226,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 9f93f63d068b08c459038c40fce897d8,
+        type: 2}
+    - target: {fileID: 1580562312918638116, guid: c163dc93e213e1e4c907ce41c5137226,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 9f93f63d068b08c459038c40fce897d8,
+        type: 2}
+    - target: {fileID: 1580562313670426657, guid: c163dc93e213e1e4c907ce41c5137226,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 9f93f63d068b08c459038c40fce897d8,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c163dc93e213e1e4c907ce41c5137226, type: 3}
 --- !u!54 &369288333 stripped
@@ -718,7 +736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1203732102
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1003,6 +1021,24 @@ PrefabInstance:
       propertyPath: punchSound
       value: 
       objectReference: {fileID: 1970794284}
+    - target: {fileID: 1515481514439093515, guid: 38df5e10c1d2c134da3b8192b326b31d,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 9f93f63d068b08c459038c40fce897d8,
+        type: 2}
+    - target: {fileID: 1515481512902280099, guid: 38df5e10c1d2c134da3b8192b326b31d,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 9f93f63d068b08c459038c40fce897d8,
+        type: 2}
+    - target: {fileID: 1515481512718308350, guid: 38df5e10c1d2c134da3b8192b326b31d,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 9f93f63d068b08c459038c40fce897d8,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 7163742125975831734, guid: 38df5e10c1d2c134da3b8192b326b31d, type: 3}
     - {fileID: 7163742125580184174, guid: 38df5e10c1d2c134da3b8192b326b31d, type: 3}
