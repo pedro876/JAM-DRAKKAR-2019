@@ -6,7 +6,7 @@ public class WindController : MonoBehaviour
 {
     [Header("Wind variables")]
     [SerializeField] float windPower = 5f;
-    public Vector2 windDirection = new Vector2();
+    [HideInInspector]public Vector2 windDirection = new Vector2();
     float timeForWave = 0f;
     float duringTimeForWave = 0f;
 
