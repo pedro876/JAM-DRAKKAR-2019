@@ -382,7 +382,7 @@ Transform:
   m_LocalScale: {x: 10.171945, y: 5.0859685, z: 5.0859647}
   m_Children: []
   m_Father: {fileID: 1950801515}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &852948055
 AudioSource:
@@ -766,7 +766,7 @@ Transform:
   m_LocalScale: {x: 10.171945, y: 5.0859685, z: 5.0859647}
   m_Children: []
   m_Father: {fileID: 1950801515}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1396066134
 AudioSource:
@@ -1029,8 +1029,8 @@ Transform:
   m_LocalPosition: {x: 0.55256546, y: 146.02515, z: -0.20204216}
   m_LocalScale: {x: 0.09830962, y: 0.19661939, z: 0.19661954}
   m_Children:
-  - {fileID: 1396066133}
   - {fileID: 852948054}
+  - {fileID: 1396066133}
   - {fileID: 1970794283}
   m_Father: {fileID: 0}
   m_RootOrder: 4

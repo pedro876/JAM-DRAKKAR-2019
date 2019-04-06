@@ -170,4 +170,9 @@ public class ShipMove : MonoBehaviour
         hitDirection = dir * hitPower;
         print("someone was hit");
     }
+    public void stopHit()
+    {
+        hitCounter = 0f;
+        hitDirection = new Vector3();
+    }
 }
