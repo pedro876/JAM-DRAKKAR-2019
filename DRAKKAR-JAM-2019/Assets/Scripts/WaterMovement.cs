@@ -6,6 +6,7 @@ public class WaterMovement : MonoBehaviour
 {
 
     [SerializeField] MeshCollider[] children;
+    [SerializeField] WindController wc;
     [SerializeField] float speed = 60f;
     int index = 0;
     // Start is called before the first frame update
@@ -26,6 +27,7 @@ public class WaterMovement : MonoBehaviour
         index++;
         if (index > children.Length - 1) index = 0;
         yield return new WaitForSeconds(1f / speed);
+        //wc.CheckDisplacement();
         StartCoroutine("changeObject");
     }
 }
