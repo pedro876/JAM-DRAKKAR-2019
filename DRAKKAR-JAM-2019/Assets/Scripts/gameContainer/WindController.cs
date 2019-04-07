@@ -18,16 +18,28 @@ public class WindController : MonoBehaviour
     [SerializeField] Rigidbody[] players;
     [SerializeField] GameObject water;
 
-    Vector3 waterSpeed = new Vector3();
+    [Header("Variables del desplazamiento de agua")]
+
+    Vector2 waterSpeed = new Vector2(0f,0f);
+    [SerializeField]float maxSpeed = 10f;
+    [SerializeField]float ac = 0.5f;
 
     private void Start()
     {
+        //Time.timeScale = 0.1f;
         StartCoroutine("startWind");
     }
 
-    private void LateUpdate()
+    public void CheckDisplacement()
     {
-        water.GetComponentInChildren<MeshRenderer>().material.SetVector("_DirectionXY", new Vector4(windDirection.x/2f, windDirection.y/2f, 0, 0));
+        waterSpeed += windDirection.normalized * ac;
+        if (waterSpeed.magnitude > maxSpeed) waterSpeed = waterSpeed.normalized * maxSpeed;
+        if (windDirection.magnitude < 0.01f)
+        {
+            waterSpeed += -waterSpeed * 0.1f;
+        }
+        print(waterSpeed);
+        water.GetComponentInChildren<MeshRenderer>().material.SetVector("_DirectionXY", new Vector4(waterSpeed.x * Time.deltaTime, waterSpeed.y * Time.deltaTime, 0, 0));
     }
 
     IEnumerator startWind()
@@ -38,13 +50,6 @@ public class WindController : MonoBehaviour
         yield return new WaitForSeconds(timeForWave);
         duringTimeForWave = Random.Range(minDuringTimeForWave, maxDuringTimeForWave);
         windDirection = new Vector2(Random.Range(-187, 187), Random.Range(-187, 187)).normalized * windPower;
-        /*MeshRenderer[] mr = water.GetComponentsInChildren<MeshRenderer>();
-        foreach(MeshRenderer m in mr)
-        {
-            m.material.SetVector("_DirectionXY", new Vector4(windDirection.x, windDirection.y, 0, 0));
-        }*/
-
-        //water.GetComponent<MeshRenderer>().material.SetVector("_DirectionXY", new Vector4(windDirection.x, windDirection.y, 0, 0));
         print("applying wind of " + windDirection);
         yield return new WaitForSeconds(duringTimeForWave);
         StartCoroutine("startWind");
