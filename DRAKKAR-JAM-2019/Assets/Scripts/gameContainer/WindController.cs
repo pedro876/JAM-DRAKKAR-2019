@@ -18,9 +18,16 @@ public class WindController : MonoBehaviour
     [SerializeField] Rigidbody[] players;
     [SerializeField] GameObject water;
 
+    Vector3 waterSpeed = new Vector3();
+
     private void Start()
     {
         StartCoroutine("startWind");
+    }
+
+    private void LateUpdate()
+    {
+        water.GetComponentInChildren<MeshRenderer>().material.SetVector("_DirectionXY", new Vector4(windDirection.x/2f, windDirection.y/2f, 0, 0));
     }
 
     IEnumerator startWind()
@@ -31,11 +38,12 @@ public class WindController : MonoBehaviour
         yield return new WaitForSeconds(timeForWave);
         duringTimeForWave = Random.Range(minDuringTimeForWave, maxDuringTimeForWave);
         windDirection = new Vector2(Random.Range(-187, 187), Random.Range(-187, 187)).normalized * windPower;
-        MeshRenderer mr = water.GetComponentInChildren<MeshRenderer>();
-        /*foreach(MeshRenderer m in mr)
-        {*/
-            mr.material.SetVector("_DirectionXY", new Vector4(windDirection.x, windDirection.y, 0, 0));
-        //}
+        /*MeshRenderer[] mr = water.GetComponentsInChildren<MeshRenderer>();
+        foreach(MeshRenderer m in mr)
+        {
+            m.material.SetVector("_DirectionXY", new Vector4(windDirection.x, windDirection.y, 0, 0));
+        }*/
+
         //water.GetComponent<MeshRenderer>().material.SetVector("_DirectionXY", new Vector4(windDirection.x, windDirection.y, 0, 0));
         print("applying wind of " + windDirection);
         yield return new WaitForSeconds(duringTimeForWave);
