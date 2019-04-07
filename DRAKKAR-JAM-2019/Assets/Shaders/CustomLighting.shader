@@ -99,8 +99,7 @@ Shader "Shader Forge/Examples/Custom Lighting" {
                 float attenuation = LIGHT_ATTENUATION(i);
                 float4 _Diffuse_var = tex2D(_Diffuse,TRANSFORM_TEX(i.uv0, _Diffuse));
                 float3 node_84 = (_Diffuse_var.rgb*floor(max(0,dot(lightDirection,normalDirection)) * _Bands) / (_Bands - 1)); // Diffuse Light
-                float3 node_55 = (node_84+max(node_84,_Coloroscuro.rgb)+_Diffuse_var.rgb+(-0.6));
-                float3 finalColor = (attenuation*_LightColor0.rgb*node_55);
+                float3 finalColor = (attenuation*_LightColor0.rgb*(node_84+max(node_84,_Coloroscuro.rgb)+_Diffuse_var.rgb+(-0.6)));
                 return fixed4(finalColor,1);
             }
             ENDCG
@@ -157,8 +156,7 @@ Shader "Shader Forge/Examples/Custom Lighting" {
                 float attenuation = LIGHT_ATTENUATION(i);
                 float4 _Diffuse_var = tex2D(_Diffuse,TRANSFORM_TEX(i.uv0, _Diffuse));
                 float3 node_84 = (_Diffuse_var.rgb*floor(max(0,dot(lightDirection,normalDirection)) * _Bands) / (_Bands - 1)); // Diffuse Light
-                float3 node_55 = (node_84+max(node_84,_Coloroscuro.rgb)+_Diffuse_var.rgb+(-0.6));
-                float3 finalColor = (attenuation*_LightColor0.rgb*node_55);
+                float3 finalColor = (attenuation*_LightColor0.rgb*(node_84+max(node_84,_Coloroscuro.rgb)+_Diffuse_var.rgb+(-0.6)));
                 return fixed4(finalColor * 1,0);
             }
             ENDCG
